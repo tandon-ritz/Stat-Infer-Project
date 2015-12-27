@@ -1,7 +1,4 @@
-This is Statistical Inference project [Coursera's statistical inference class](https://www.coursera.org/course/statinference) 
-offered by the Johns Hopkins University. 
-
-
+This is Statistical Inference project.
 
 It includes 2 rmarkdown reports covering the following topics:
 
