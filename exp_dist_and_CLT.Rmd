@@ -1,0 +1,94 @@
+---
+title: "Compariing Exponential Distribution simulation with central limit theorem "
+author: "Ritesh Tandon"
+date: "December 26, 2015"
+output: pdf document
+---
+
+```{r echo = FALSE, message=FALSE, warning=FALSE}
+
+library(ggplot2)
+
+```
+
+
+## Overview
+
+In this project we will analyze exponential distribution simulation and compare it with the Central Limit Theorem in R. 
+
+The exponential distribution can be simulated in R with the `rexp(n, lambda)` function where lambda represents the rate parameter. The mean of an exponential distribution is 1/lambda and the standard deviation is also 1/lambda. 
+
+we will take the 1000 observation from exponential distribution with rate lambda as 0.2, we will consider this as population data. Then we will take samples of 40 observation from this population. WE will take 1000 such samples and analyze its estimated values ( mean and variance) of the sampling distribution with the population.  
+.
+
+
+## Comparison of the sample mean and the theoretical mean of the distribution
+
+Following will show the histogram of the 1000 observations taken from exponential distribution
+
+```{r}
+
+n<-1000
+lambda<-0.2
+#pop_mean<-1/lambda
+#pop_sd<-1/lambda
+#pop_var<-pop_sd^2
+#rexp(n, lambda)
+hist(rexp(n, lambda))
+
+```
+
+
+Following compares the means of samples with the polulation mean
+
+```{r}
+
+mns = NULL
+for (i in 1 : 1000) mns = c(mns, mean(rexp(40, lambda)))
+#var(mns)
+
+```
+
+sample mean in our case is 
+
+```{r} 
+mean(mns)
+``` 
+which is very close to the mean of the theoretical distribution which is
+
+```{r} 
+1/lambda 
+```
+
+Thus we see that mean of sampling distribution of the sample means is approximately equal to the polulation mean.
+
+## Comparison of the sample variance with the theoretical distribution
+
+According to the Central Limit Theorem,variance of the sample of the 1000 means is approximately -
+```{r}
+(1/lambda)^2/40
+
+```
+
+which is very close to the variance of  theoritical distribution that is -
+
+```{r}
+var(mns)
+```
+
+Thus we see that variance of sampling distribution of the sample means is approximately equal to the polulation variance divided by square root of sample size.
+
+
+## Showing that the sample distribution is approximately normal
+
+Following histogram plot displays that sampling distribution of the sample means is approximately normally distributed with sample mean same as population mean and sample variance equal to polulation variance divided by square root of sample size. . 
+
+```{r fig.height=4, fig.width=4}
+hist(mns)
+
+```
+
+## Conclusions
+
+In this analysis We have shown that sampling distribution of the sample means is approximately normally distributed with sample mean of the sampling distribution is approximately equal to the population mean and the variance of the sampling distribution is equal to the variance of the population/square root of 40.
+
