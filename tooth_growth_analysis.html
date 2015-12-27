@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>Overiew</title>
+
+<script type="text/javascript">
+window.onload = function() {
+  var imgs = document.getElementsByTagName('img'), i, img;
+  for (i = 0; i < imgs.length; i++) {
+    img = imgs[i];
+    // center an image if it is the only element of its parent
+    if (img.parentElement.childElementCount === 1)
+      img.parentElement.style.textAlign = 'center';
+  }
+};
+</script>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: #990073
+   }
+
+   pre .number {
+     color: #099;
+   }
+
+   pre .comment {
+     color: #998;
+     font-style: italic
+   }
+
+   pre .keyword {
+     color: #900;
+     font-weight: bold
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: #d14;
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 13px;
+}
+
+body {
+  max-width: 800px;
+  margin: auto;
+  padding: 1em;
+  line-height: 20px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 {
+   font-size:2.2em;
+}
+
+h2 {
+   font-size:1.8em;
+}
+
+h3 {
+   font-size:1.4em;
+}
+
+h4 {
+   font-size:1.0em;
+}
+
+h5 {
+   font-size:0.9em;
+}
+
+h6 {
+   font-size:0.8em;
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre, img {
+  max-width: 100%;
+}
+pre {
+  overflow-x: auto;
+}
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code {
+  font-size: 92%;
+  border: 1px solid #ccc;
+}
+
+code[class] {
+  background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * {
+      background: transparent !important;
+      color: black !important;
+      filter:none !important;
+      -ms-filter: none !important;
+   }
+
+   body {
+      font-size:12pt;
+      max-width:100%;
+   }
+
+   a, a:visited {
+      text-decoration: underline;
+   }
+
+   hr {
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote {
+      padding-right: 1em;
+      page-break-inside: avoid;
+   }
+
+   tr, img {
+      page-break-inside: avoid;
+   }
+
+   img {
+      max-width: 100% !important;
+   }
+
+   @page :left {
+      margin: 15mm 20mm 15mm 10mm;
+   }
+
+   @page :right {
+      margin: 15mm 10mm 15mm 20mm;
+   }
+
+   p, h2, h3 {
+      orphans: 3; widows: 3;
+   }
+
+   h2, h3 {
+      page-break-after: avoid;
+   }
+}
+</style>
+
+
+
+</head>
+
+<body>
+<h2>Overiew</h2>
+
+<p>In this report we will analyze the TootGrowth data of the R data set package which describes the effect of different doses of vitamin C supplement on tooth growth.</p>
+
+<p>The ToothGrowth data set consists of 60 observations of 3 variables:</p>
+
+<ul>
+<li>len: Tooth length in millimeters (numeric variable)</li>
+<li>supp: Supplement type (factor variable with levels VC and OJ)</li>
+<li>dose: Dose in milligrams (numeric variable)</li>
+</ul>
+
+<h2>Exploratory data analysis</h2>
+
+<p>The average tooth length is 18.8133333 and standard deviation of 7.6493152.</p>
+
+<p>Following graph shows the effect in tooth length depending on different doses for both the types of supplement ( OJ and VC ).</p>
+
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA2AAAAJACAMAAADcl/UUAAAA/1BMVEUAAAAAADYAADoAAGEAAGYANogAOjoAOmYAOpAAYawAZpAAZrY2AAA2Nog2iM86AAA6ADo6AGY6OmY6OpA6ZrY6kJA6kNthAABhADZhrPJmAABmADpmAGZmOgBmOjpmOpBmZgBmZjpmZmZmkJBmtv+INgCINjaINmGIiGGIz/KQOgCQOjqQOmaQZgCQkDqQkGaQkLaQtpCQ27aQ29uQ2/+sYQCsYTasz/Ks8vK2ZgC2Zjq2Zma225C2/7a2/9u2///PiDbP8s/P8vLT09PbkDrbkGbb/7bb/9vb///yrGHyz4jyz6zy8qzy8s/y8vL/AAD/tmb/25D//7b//9v////d10zmAAAACXBIWXMAAAsSAAALEgHS3X78AAAbGUlEQVR4nO2dDX/b1nWHMc/b1KmNrKrlFsWN203tFjtp007tKi+tslZp6ayxKZLf/7MML5ev4gtA4pw/wPM8v0SkJRJ/4AAP78UliZtNAcCMTL0CAKcMggEYgmAAhiAYgCEIBmAIggEYgmAAhiAYgCEIBmAIggEYgmAAhiAYgCEIBmAIggEYgmAAhiAYgCEIBmAIggEYgmDdZZRl2fl0+nh5r14TOBgE6yyj5/fTyeuBejXgKBCsq0xe3+Q/H6+Gj5dfXQ2nkze34+ssd+7x6ossK/40a9ryhq749WX5//jlL7Nnt9N0A3IQrKvMe4aPl398c1uYdjeYPpxPHy8G09HZcP648cv78tdJsOuzYd70pRvRqsMCBOsquVHpzuX9Q67WYPxJ0TLdJ5Pmjyt+XT2qEuymauzKG8FqwyoI1lVKYy7yjl5+5/Hqr2UPMav+uTruUT5oLlih291NulGtO8xBsK5SnYPlpuTaTN78+mpY9AWn86Zq5bF5l3FJsKIFq24Eqw2rIFhnGRWjFKOqyXrIBnmLNFgyafGw/Hws/79Q6qE4+Tov/1Xd6FYeEgjWXfK+33x88MVt3ppdL/UFp/NhkLvyUbmD2Y9f5i3Yz8pRxOoG5CDYaZGGPNINyEGw0wLBOgaCARiCYACGIBiAIQgGYAiCARiCYACGIBiAIQgGYAiCARiCYACGIBiAIQgGYAiCARiCYACGIBiAIQgGYAiCARiCYACGIBiAIQgGYAiCARiCYACGIBiAIW0JlgGEQCVYS8sB6DQIBmAIggEYgmAAhiAYgCEIBmAIggEYgmAAhiAYgCEIBmAIggEYgmAAhiAYgCEIBmAIggEYgmAAhiAYgCEIBmAIggEYgmAAhiAYgCEIBmAIggEYgmBxUF8hMBpV0ZvupLZ2dkvLgfpk78ERBIsGgrmCYNFAMFcQLBoI5gqCRQPBXEGwaCCYKwgWDQRzBcGigWCuIFg0EMwVBIsGgrmCYNFAMFcQLBoI5gqCRQPBXEGwaCCYKwgWDQRzBcGigWCuIFg0EMwVBIsGgrmCYNFAMFcQLBoI5gqCRQPBXEGwaCCYKwgWDQRzBcGi0TfBvvv5x/nPd//wp2+/n2UfqdemMQgWjb4J9v7d9/Ifv/34b//6WZKtVyBYNHon2He/+Oz9tz/409cfqVfkIBAsGr0T7H2uVvFf7xqvEgSLRv8E+/YH//sfv3//7qP87v/9t3plmoJg0eifYO9/95/5aVh1DvaRel2agmDR6KFg7/7us/wno4gH7OyWlgP16aFgfQbBooFgriBYNBDMFQSLBoK5gmDRQDBXECwaCOYKgkUDwVxBsGggmCsIFg0EcwXBooFgriBYNBDMFQSLBoK5gmDRQDBXECwaCOYKgkUDwVxBsGggmCsIFg0EcwXBooFgriBYNBDMFQSLBoK5gmDRQDBXECwaGbhSFb3pTmprZ7e0HIBOg2AAhiAYgCEIBmAIggEYgmAAhiAYgCEIBmAIggEYgmAAhiAYgCEIBmAIggEYgmAAhiAYgCEIBmAIggEYgmAAhiAYgCEIBmAIggEYgmAAhiAYgCEIBmAIggEYgmAAhiAYgCEIBmAIggEYgmAAhiAYgCEIBmAIggEYgmAAhmgFU0/yGYyW9h00QCyYeqLqUCCYAASLA4IJQLA4IJgABIsDgglAsDggmAAEiwOCCUCwOCCYAASLA4IJQLA4IJgABIsDgglAsDggmAAEiwOCCUCwOCCYAASLA4IJQLA4IJgABIsDgglAsDggmAAEiwOCCUCwOCCYAASLA4IJQLA4IJgABIsDgglAsDggmAAEa8R3P8+yv/99ce93n6nXpTEIJgDBmvC3f/n4/ft3pWEIBnVAsCa8+6j4+XXxE8GgDgjWhK8/Ln6WmiEY1AHBmkALBg1BsCbMzsF++/F3v0AwqAGCNSKNIn77/ex76lVpDoIJQLA4IJgABIsDgglAsDggmAAEiwOCCUCwOCCYAASLA4IJQLA4IJgABIsDgglAsDggmAAEiwOCCUCwOCCYAASLA4IJQLA4IJgABIsDgglAsDggmAAEiwOCCUCwOCCYAASLA4IJQLA4IJgABIsDgglAsDggmACxYOBJS/sOGqAVDODEQTAAQxAMwBAEAzAEwQAMQTAAQxAMwBAEAzAEwQAMQTAAQxAMwBAEAzAEwQAMQTAAQxAMwBAEAzAEwQAMQTAAQxAMwBAEAzAEwQAMQTAAQxAMwBCZYAAhEAkGABtAMABDEAzAEAQDMATBAAxBMABDEAzAEAQDMATBAAxBMABDEAzAEAQDMATBAAxBMABDEAzAEAQDMATBAAxBMABDEAzAEAQDMATBAAxBMABDEAzAEAQDMATBAAxBMABDWhbsLnt2m+7M7pkzfnm/mu0Z6ZQ5eZ1lZ8Mq0m0roQXaFWx0NhyVx8HkzW2rC96VmT2/X8n2i/TbytF5rtbN1HUroQ3aFexhkF7cx59eZOetLnobky8nn9+vZPtF+m1lwUMhmN9WQiu0LNjNtDr2RvlLfHlAODATbJbtF+m5lWUj5ruV0AJGLVjBaNDqsrfi3oJNl49xr628q5pKWrCeYXQOVhx2zi2Y59nJLNJtKyevUwznYD3DYhRx/GpYjK85vbSXR3sV6Ta+toh02sq7Yuq3gfNWQgvwPhiAIQgGYAiCARiCYACGIBiAIQgGYAiCARiCYACG2Agm0JZI6CIH7LHxq+H4On1ho72lHguR0EUOE+xt9XmoNpd6LERCFzlYsJ1fmohx6MWIhKM4RLDr829owcJEwlEctMdG2fn4k9vV5QCEwEOwTWr9Gbyh5gI8BBtlZ1+sfytpdTl/PmCpRxIwkpoLIh0Em3x+/3A2XDsHY2f7R1JzQaSDYLlao8H6KCI72z+SmgsiPVqw8mqAtGDySGouiPQ4B3u8vJ8+GUXcsU4uBIyk5oJI/1HETcuRlyFEJDX3YG1gHsHiRFJzB7Lp6sg8gsWJpOYOIFjcSGruAV3EsJHUXBCJYHEiqbkgEsHiRFJzQSSCxYmk5oJIBIsTSc0FkQgWJ5Kae8AoYthIau4A74PFjaTmDiBY3Ehq7gFdxLCR1FwQiWBxIqm5IBLB4kRSc0EkgsWJpOaCSASLE0nNBZEIFieSmgsiESxOJDUXRCJYnEhqLohEsFOOXH3Tk5oLIhHshCPXPrZDzQWRCHbCkQimj/SZ/KHgZsdy5GU40Ui6iPJIt0tnF5f33boceRlCRFJzQaTP5A/TKZM/6COpuSDSQ7DysvS0YPJIai6I5BwsTiQ1F0T6jyIyhawKai7ApwVjCtkuRFJzD/y/0cwUsrJIhunV7z06jSIyhawkkjea5TX3ex+MFky+s6m5B4KL3jCFrCqSLqI8ks8ixomk5oJIBIsTSc0FkQgWJ5KaCyIRLE4kNRdEIlicSGouiESwOJHUXBCJYHEiqbkgEsHiRFJzQSSCxYmk5oJIBIsTSc0FkVEFy9rakAaot1Jd85CRQQVb/8yzC+qtRDBBJIL5od5KBBNEBhWMLqL+0IsRGVWwiJHUXBCJYHEiqbkHgi9c7l9OiMrLI6m5A4JLBtRYjvx1xgX1VqprHiKyuCThyr+bPr+t9Vj5l/x1xgX1ViKYAwiW4hHMd12iRNJFTPl0EV3XJE4kgxxV/skL9qFk+TfqmoeMDCrYqXYRPyx4GolggkgHwcavhuPr7PnKhX3VO/ukBFu3agFdRP/ItZ3gI9jb265d2bf3XcTtVi1gkEPQLZdcmz4XrGPXpu+nYHWsWgLBPCOrnaKY/OH6/JuutWB96iI2tGoZuohOkUs7RzGKOMrOO3Zt+s4LdoRVWyMRzIT1faQeRezGDJfyFdjEklXtLHB1K7u4yX1n767yEGxUTNDcsXOw7kS21FZtgnMw08gtu8y9BSvmB7u7QbDlSEOrllj7XFzwmrfL9j2neB9sOn37XwjmY9USCGYTuXsPSlqw/McPgwq2dF7lFTmDLmL7kftfHv0HOYoZLqsf25ZzCpVfYWNjpX6378Rr7hBZq++hHkXctJzeV75kXxdQvZWnWHO/yNo9ewRrNbLBiZV6K0+m5v6RTU6bEazMP2pDDhuuUB9f6pr3NLLhXub7YFV8809yHD0IqD6+EKwxzXc232iu4rOaTVibQ+vq4wvBmnHQPueaHFX8TsGM3rBSH18IVp+D9z2CpfgnXUT7t4HVZ5oIVpNjDgG6iCm/WgHXD1eoX0bUNe9F5NGHAoMcFZ4fWUogWMcj2zkiGKafFqXs+s5uBbqI9SNbe7lFsPK6JJ3e2W3RLcG6e5mGVjszCPbBP3IqiexWF7Gr3yJv+0whumCbrhjog/qQRrAnWJyHxxZsXs8IgtFF3LWVVoNcoQVbVDSEYLzRvC3ScAQ5sGDaL2fJIxGswvj9mbiC7bi4lgvqSASbmjZdGyM7IZhL53ytsF3Y2c6R4QVz+WhBBz/J4TG89KSy6p0tiAwtmNfndrr4WUQHwZ7UtmMjWi6RcQVz/FBcFwUzP9qflreL78mYR8YUzPsjpx3sIhpXflN9EUy+Ni54f567oIODHKaV31xhuojqtTGnbLrkW3nqgtW8wLEL6shIgn3oyifiPAQbldOp3OxYjlUZdnQQ5JX3j4wi2PJZl3wrHQQrL50tubLvrv63vPL+kREEWx/SkG+lg2DV3Jb+s6vsPr+VV94/8uQF2zCkId9KD8HKyS29W7A9w0cMcqjXpmW2jMbLt/JUz8H2jM4yTC9fmzbZPhov38p2BKsUen6/8Y/rS3CYQnbvFKwdmMTWn9Pc4qLpUq/DDloRbHx9s+nXS/r5TiG7/83F2lf2bRP1q+nptWD7P6Uh38p2BHu5q+3ynkK2zpv3dBHla3M0B0zW5YJFF/FusOMpvlPI1vxsDIMc6rU5igMn63LBogW73nUO5jqFbO2Pnskr7x95KoIdPlmXC/6jiH5TyPap8v6RpyBY08/Gy7fylD6L2KvZ8ASRasGO7ZYf8sUTdc1bEmzyOjv7S/l+8mHLaaUMzYovr7x/ZK+vi3jgF0/UNW9HsMnrwePVcHQ2PHQ5rfQdmj1eXnn/yN4KdsR3JuXtdFvD9Llguwfrdy7n6DL0sO/gH9nPLuJx35mUv4y02II96FqwA3aB+mgXRKoFax55/Nf9T0Ow4hwsy5r41erOPmgn9OH4ajmyX4JZTNblwcldk+PA3dD148sgskeCGU3W5cKJDdP35+xXHtkTwQwn63KhdcHS5zjqfpp+03IOLsPhu0Jeef/IPghmO1mXCx1swQ5+B/KInSGvvH9k1wWzn6zLhe4JdugbJP0av9VHdlkwn8m6XDgVwY7cIfLK+0eqBdvaUXGbrMuF7gl2UBfx2F0ir7x/ZCc/yeE6WZcLHRTskHcgj10BeeX9I7snmPdkXS6cgGD9fAdSHtmtLqLPpAzqmvdSsFb2i7zy/pFqwRaRfjOeqGveDcEanYO1tGvklfePVAuWdrPrjCfqmndCsCajiK3tHHnl/SM7cA7mPVmXvOZ9E+yEPkPjHykXTD5ZlyCyC4LV7iK2uYPklfePFAv24UPAK3l1Q7B6ZWj39U9eef9IqWDF3lMXQBHZH8Fa7l7IK+8fKRSsenFUF0AR2RfBWu++yyvvHykTbLbz1AVQRPZEsPbPjuWV948UCTZ/bYx4NWUPwcavhuPr9S+LNdrZFqNP8sr7R0oEW+y7kPMBOAn29jbNc7l5Obtf2k70ewz+kQLBlvddyBlt/ATbMbvK7pc2o/dO5JX3j3QXbPWlEcHqcIhg1+ff7GzBdglm9t6kvPL+kc6Cre86uoh1OKhEo+x8vHZh7XpdRMO3/uWV9490FWzDrmOQowbH16jBFLJdnhq0hzhOIdvpWV1d6cQw/eaXNtNPrkV8NfVrwTbvuYg19zkH23BRt73nYLYfDA15PuAl2JZdF7LmLl3Ex6unF9XeJ5jx565D7mwfwba+Moasuc852MPN7uU86TvYf68hYnfFQ7Bdey5izTv5USmXrw3JK+8faS/Ynj2nLoAisoOC+XwrT155/0hrwfa+MKoLoIjsnGBhrobiH2kr2P4dRxexBtaCuX2pXF55/0hLwWq8LjLIUQdbwRwv2iCvvH+knWC19huC1cFSMNdrosgr7x9pJVjd/UYXsQaGggW7npd/pI1gDV4W1QVQRHZGMO9Leskr7x9pIVij3aYugCKyI4L5XzFPXnn/SAPBmu02dQEUkd0QzP+ClPrK+0e2LljTl0V1ARSR3RBMXoYQkS3XvHmvQ10ARSSCxYlsteaHdOrVBVBEIlicyBZrftg5s7oAikgEixPZWs0PHZJSF0ARiWBxIluq+eEjvuoCKCIRLE5kKzU/5g0VdQEUkQgWJ7KFmh/3fqW6AIpIBIsT2eBqyps59uMA6gIoIhEsTmT9qylv5PhP26gLoIhEsDiRK4I1vY51Gx9mUxdAEYlgcSKPEayVD7OpC6CIRLA4kYd3EVv6LLa6AIpIBIsTeeggR2tfdVAXQBGJYHEiD6t5i98kUhdAEekh2Ki8dPbqxUcRzD/ykJq3+kU9dQEUkQ6CTd7c5j8fL7dem74DZQgR2bzmLX8PVl0ARaSDYNXUeztmuOxAGUJENq15618zVxdAEekhWDn33q4WLOTlhvwjm9Xc4CoO6gIoIrtwDhbzgnn+kU1qbnKRFHUBFJH+o4hPZ7isO+ElHEe2en9HzZmgsjW6MEwfc/p5/8i6XUQmnm8x0uMcbO8MlwjmEllvkIOJ51uN9GjB9s5wiWAukbUEs7yCnroAikiXLuKeGS4Z5PCJrCGY7QVg1QVQRHbhHIxhep/IvYJZX19ZXQBFZCcE05chROSemttfvlxdAEUkgsWJ3Flzj9kB1AVQRCJYnMgdNfeZfENdAEUkgsWJ3Fpz5sW2i0SwOJFbau43dZS6AIrITgjGKKJL5EbBPGdmUxdAEdkFwXgfzCdyg2C+Ex+qC6CIRLA4kU8EY9pe+8guCEYX0SdyTTCm7fWI7IRg+jKEiFytOdP2ukQiWJxIai6IRLA4kXTLBZEIFieSgSVBJILFieQ7eIJIBIsTiWCCSASLE0kXURCJYHEiGeQQRCJYnEgEE0QiWJxIuoiCSASLE4lggkgEixNJF1EQiWBxIhFMEIlgcSLpIgoiESxOJIIJIhEsTiRdREEkgsWJpOaCSASLE0kLJoh0EGz8aji+Xpu9CMEEkZyDCSJ9BHt7m6ZC37IceRlCRCKYINJNsMnnqQl7OoUs+LBSc/aADx6CXZ9/QwvWgUhqLoh0GeQYZefjT253LEdehhCR1FwQyShinEhqLohEsDiRDNMLIhEsTiSjiIJIBIsTiWCCSASLE0kXURCJYHEiqbkgEsHiRFJzQSSCxYmk5oJIBIsTSc0FkQgWJ5KaCyIRLE4kNRdEygQDCIFIMFAj2JNEWj8bukPvDr0YkQh2KvTu0IsRiWCnQu8OvRiRCHYq9O7QixGJYKdC7w69GJEIBmAIggEYgmAAhiAYgCEIBmAIggEYgmAAhiAYgCEI1nvusme36c7snjnjl/er2Z6RTpmT11l2NqwiD09EsL4zOhuOyuNg8ubWLTNNDzfP9ov028rRea7WzfTIrUSwvvMwSC/u408vsnOXyMmXafKqebZfpN9WFjwUgh21lQjWd/JjoDr2RvlLfHlAODAT7GYxT5xTpOdWlo3YkVuJYH1n5fV1NPAJdW/BpsvHuNdW3lVNJS1YaOZnCMVh59yCOZ6DzSPdtnLyOsVwDhabcoyrmHD0LsucXtrLo72KdBtFXEQ6beVdcYmbwbFbiWAAhiAYgCEIBmAIggEYgmAAhiAYgCEIBmAIggEYgmAAhiAYgCEIBmAIggEYgmAAhiAYgCEIBmAIggEYgmAAhiAYgCEIBmAIggEYgmAAhiAYgCEIBmAIggEYgmAAhiAYgCEIBmAIgm2mmN4wm81wOOfx8j7/r7o/yv+8ZaKq5Yelpd0s/rT+0HqLeLJ+NSZA2LqEnYsul77v+u/7llDvIQFAsK1sOECWDvtinqrJ682HYVcE28q+Y3+/GwhWEwTbSnWAjK/LuUvLm+LHV5c/zbKbdIA/Xg0ff/iT6g/3xa8eX9xOR/94MX/YtFrCP/0k/9NF/ovygeW9tPjiZxXxePVF+Yzi4Z/+5nppEXlKMXNq3mRWs6jOlphWLf0+/Ws6f8Snt4+XX1VPXU0oH/rTfA2u/vLyl+XEIYvnzraznE6kWnKxivn/4+qx6Wax3pM3v8qywaic82Q5Z2V94oJgW6kMuBsU80Olm6JduZjdS4+6uJk96GEwfcgP4IfB4mHTtIT8ePvkNjVL6d4iJH/Aw/l09ozi4c9ulxdRTEtcyHBfPGyxxJQ6Tr+vlpKYLeSP5VOHqwll6ii/Pxhfnw2Lpnjx3LulrUtLnglWPTbdLNZ78rpY8vnTLaEFK0CwrZQHSHGQ5Uakm9RxK26uhotHzf56NXz7q/Nch8XDptUSUocuv5uOuvmMiUm49JeyoSgahdVFFOYOiodVpCXOVq36fVrK0iPKhcyfukhIqa+Gb/OW7aZs4ObPXWxnWmTawlKw6rHVzWK9C/2L/9OqLHIQrADBtlIeIMWP6nhaPezLm4usbGpmDxq//MPLry7/UB5hKwdzNVv9XdHhqv417+xVR26WLRaU+oOri7j6a9ESXaR54NISU2r6fVpKWupiIcVTVxOqJUze/ObVsFTo7mbx3KXNLf51MesNJp+Kx1Y3i/VeFmx1SxBsimA72NmCVW1SerFPf53e/fuP8jOS8+njhhaseOVPXcTr2QlYFZLanR0t2OTNr6sGs+rgrbZg6fcrswgvFlI+dTUh3Xv4t0H59PKV4X7pifMWLC15SbDU2qUWrHrWsmArOQhWgGBb2XIOlo7SUfGKX50szR80yqqzsBU70hlT+YsXc3Fe3C5CFuc9s389WxUsX2gKWD6rS8+b/f5uftI3XZyD3ZdPXUtICrwomr3ztecun4OlJRdKPRQnX+Vj081ivZcEW81BsAIE28rjk1HEvN14/tXsKC3GAtMY2+xB5Rji2sPKN5WKMb+HrLjJ/3Rf3Vsc6tWg3ezwz//1z29uVxdR+rjoWKYlptS7+Sjis/noSbWQucqrCcUCnt+Xcx5/8rPZKGLqXaZxwPTSUC05X98fv7xPj003i/VeFmwlpwhx3WGdBME6yDGv/f8ze+q+hTz+aD6MUYulwRSoD4J1jOIjJIfPaT+dfFlzIQ9ly4Vg1iAYgCEIBmAIggEYgmAAhiAYgCEIBmDI/wMPafXkwPbj2AAAAABJRU5ErkJggg==" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" style="display: block; margin: auto;" /></p>
+
+<h2>Hypothesis tests</h2>
+
+<p>We want to statistically prove that different supplement ( OJ or VC ) or different doses ( 0.5, 1.0, 2.0 ) or combination of both effects tooth growth. Our null hypothesis is that there is no effect on tooth growth even after giving supplement/doses. We either has to accept or reject this null hypothesis by statistical evidence.</p>
+
+<p>Although the total number of observation in datasets is 60 but it is less than 30 within each group ( supplement or doses ) , hence we will perform t test on the data.</p>
+
+<h3>Differences in supplement types</h3>
+
+<p>We will verify if the difference in tooth length means between pigs who received their dose using OJ and those who received their dose via VC is statistically different from 0.</p>
+
+<pre><code>##   estimate estimate1 estimate2 statistic    p.value parameter   conf.low
+## 1      3.7  20.66333  16.96333  1.915268 0.06063451  55.30943 -0.1710156
+##   conf.high
+## 1  7.571016
+</code></pre>
+
+<p>We notice that p value is 0.06 which is greater than significant value 0.05 , indicating that based on given data we are not 95% confident that supplement effect the tooth growth. </p>
+
+<p>Also, 95% t confidence interval is between -0.1710156 and 7.571016 that contains 0 in the range.This, we are not sure if supplement effect the tooth growth. Hence, we can not reject our null hypothesis.</p>
+
+<h3>Differences in dose levels</h3>
+
+<p>There are three different types of doses ( 2, 1 and 0.5 ) given to the subjects in order to study its impact on tooth length. We will do group by comparison between these doses and perform t test between the groups in order to analyze its impact on tooth length</p>
+
+<ol>
+<li>comparison of Impact on tooth length betwenn dose 2 and 1</li>
+</ol>
+
+<pre><code>##   estimate estimate1 estimate2 statistic     p.value parameter conf.low
+## 1    6.365      26.1    19.735  4.900484 1.90643e-05  37.10109 3.733519
+##   conf.high
+## 1  8.996481
+</code></pre>
+
+<p>We notice that p-value ( 1.9e-05 ) is much smaller than significant level (0.05) for us to be 95% confident.Also, 0 does not lie between t interval ( 3.73 to 8.99 ) Hence, we reject null hypothesis.</p>
+
+<p>This means that we are 95% confident that the average tooth length of pigs who received a 2mg dose is on average 3.73 to 9 millimeters higher than those who received a 1mg dose.</p>
+
+<ol>
+<li>comparison of Impact on tooth length betwenn dose 2 and 0.5</li>
+</ol>
+
+<pre><code>##   estimate estimate1 estimate2 statistic      p.value parameter conf.low
+## 1   15.495      26.1    10.605  11.79905 4.397525e-14  36.88259 12.83383
+##   conf.high
+## 1  18.15617
+</code></pre>
+
+<p>We notice that p-value ( 4.3e-14 ) is much smaller than significant level (0.05) for us to be 95% confident.Also, 0 does not lie between t interval ( 12.83 to 18.15 ) Hence, we reject null hypothesis. </p>
+
+<p>This means that we are 95% confident that the average tooth length of pigs who received a 2mg dose is on average 12.83 to 18.16 millimeters higher than those who received a 0.5 mg dose.</p>
+
+<ol>
+<li>comparison of Impact on tooth length betwenn dose 1 and 0.5</li>
+</ol>
+
+<pre><code>##   estimate estimate1 estimate2 statistic      p.value parameter conf.low
+## 1     9.13    19.735    10.605  6.476648 1.268301e-07  37.98641 6.276219
+##   conf.high
+## 1  11.98378
+</code></pre>
+
+<p>We notice that p-value ( 1.26e-07 ) is smaller than significant level (0.05) for us to be 95% confident.Also, 0 does not lie between t interval ( 6.27 to 11.98 ) Hence, we reject null hypothesis. </p>
+
+<p>This means that we are 95% confident that the average tooth length of pigs who received a 1mg dose is on average 6.28 to 11.98 millimeters higher than those who received a 0.5 mg dose.</p>
+
+<h1>Conclusions</h1>
+
+<ol>
+<li><p>There is no impact on tooth length mean across supplement types.</p></li>
+<li><p>dose level does impact the tooth length mean </p></li>
+</ol>
+
+<h2>Appendix (Source Code)</h2>
+
+<p>Following source code which was used for generating the results of the analysis. 
+Complete source code and pdf files are also avilable on <a href="https://github.com/tandon-ritz/Stat-Infer-Project">GitHub</a>.</p>
+
+<pre><code class="r">library(ggplot2)
+library(dplyr)
+library(broom)
+library(wesanderson)
+library(grid)
+
+
+# Exploratory Graph
+
+require(graphics)
+coplot(len ~ dose | supp, data = ToothGrowth, panel = panel.smooth,
+       xlab = &quot;ToothGrowth data: length vs dose, given type of supplement&quot;)
+
+
+
+
+# T-test for difference in tooth length means across supplement types
+
+t_test_supp &lt;- t.test(len ~ supp, ToothGrowth, var.equal = FALSE)
+t_test_supp&lt;-tidy(t_test_supp)
+t_test_supp
+
+# t-tests for differences in tooth lengths means across dose 
+
+
+# between doses 2 and 1
+
+t_test_dose_2_and_1 &lt;- t.test(ToothGrowth$len[ToothGrowth$dose == 2],
+                           ToothGrowth$len[ToothGrowth$dose == 1])
+t_test_dose_2_and_1&lt;-tidy(t_test_dose_2_and_1)
+t_test_dose_2_and_1
+
+
+# between doses 2 and 0.5
+
+t_test_dose_2_and_0.5 &lt;- t.test(ToothGrowth$len[ToothGrowth$dose == 2],
+                           ToothGrowth$len[ToothGrowth$dose == 0.5])
+t_test_dose_2_and_0.5&lt;-tidy(t_test_dose_2_and_0.5)
+t_test_dose_2_and_0.5
+
+
+# between doses 1 and 0.5
+
+t_test_dose_1_and_0.5 &lt;- t.test(ToothGrowth$len[ToothGrowth$dose == 1],
+                           ToothGrowth$len[ToothGrowth$dose == 0.5])
+t_test_dose_1_and_0.5&lt;-tidy(t_test_dose_1_and_0.5)
+t_test_dose_1_and_0.5
+</code></pre>
+
+</body>
+
+</html>
